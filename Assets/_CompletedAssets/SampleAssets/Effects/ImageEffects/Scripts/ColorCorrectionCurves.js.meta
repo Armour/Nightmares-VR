@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 92edd2efca3bf7a48891b79c92a2f557
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - colorCorrectionCurvesShader: {fileID: 4800000, guid: 62bcade1028c24ca1a39760ed84b9487,
+      type: 3}
+  - simpleColorCorrectionCurvesShader: {fileID: 4800000, guid: 438ddd58d82c84d9eb1fdc56111702e1,
+      type: 3}
+  - colorCorrectionSelectiveShader: {fileID: 4800000, guid: b61f0d8d8244b4b28aa66b0c8cb46a8d,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
