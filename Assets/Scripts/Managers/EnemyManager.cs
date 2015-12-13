@@ -4,7 +4,7 @@ public class EnemyManager : MonoBehaviour {
 
     public PlayerHealth playerHealth;
     public GameObject enemy;
-    public float spawnTime = 5f;
+    public float spawnTime = 3.0f;
     public Transform[] spawnPoints;
 
     void Start() {
