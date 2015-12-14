@@ -60,10 +60,9 @@ public class PlayerHealth : MonoBehaviour {
 
         playerMovement.enabled = false;
         playerShooting.enabled = false;
-    }
+	}
 
-
-    public void RestartLevel() {
-        Application.LoadLevel(Application.loadedLevel);
-    }
+	public void RestartLevel() {
+		Application.LoadLevel(Application.loadedLevel);
+	}
 }
