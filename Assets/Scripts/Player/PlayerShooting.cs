@@ -14,9 +14,11 @@ public class PlayerShooting : MonoBehaviour {
     LineRenderer gunLine;
     AudioSource gunAudio;
     Light gunLight;
-    float effectsDisplayTime = 0.2f;
+	float effectsDisplayTime = 0.2f;
+	Animator anim;
 
-    void Awake() {
+	void Awake() {
+		anim = GetComponentInParent<Animator>();
         shootableMask = LayerMask.GetMask("Shootable");
         gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
@@ -27,9 +29,13 @@ public class PlayerShooting : MonoBehaviour {
     void Update() {
         timer += Time.deltaTime;
 
-		if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0) {
+		bool shooting = Input.GetButton("Fire1");
+
+		if (shooting && timer >= timeBetweenBullets && Time.timeScale != 0) {
             Shoot();
-        }
+		}
+
+		anim.SetBool("IsShooting", shooting);
 
         if (timer >= timeBetweenBullets * effectsDisplayTime) {
             DisableEffects();
