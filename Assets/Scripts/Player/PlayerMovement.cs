@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -10,9 +11,18 @@ public class PlayerMovement : MonoBehaviour {
 	Rigidbody playerRigidbody;
 	 
 	void Awake() {
-		Cursor.visible = false;
 		anim = GetComponent<Animator>();
 		playerRigidbody = GetComponent<Rigidbody>();
+
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+	}
+
+	void Update() {
+		if (Cursor.lockState != CursorLockMode.Locked) {
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
 	}
 
 	void FixedUpdate() {
