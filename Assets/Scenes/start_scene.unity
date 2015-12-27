@@ -1038,6 +1038,7 @@ GameObject:
   - 114: {fileID: 1167689731}
   - 114: {fileID: 1167689734}
   - 114: {fileID: 1167689733}
+  - 114: {fileID: 1167689735}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -1063,6 +1064,7 @@ MonoBehaviour:
   - {fileID: 1980676479}
   - {fileID: 218493199}
   - {fileID: 1088722362}
+  counter: {fileID: 1167689735}
 --- !u!4 &1167689732
 Transform:
   m_ObjectHideFlags: 0
@@ -1091,6 +1093,7 @@ MonoBehaviour:
   spawnTime: 12
   spawnPoints:
   - {fileID: 966388989}
+  counter: {fileID: 1167689735}
 --- !u!114 &1167689734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,6 +1111,21 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1560655624}
   - {fileID: 496517411}
+  counter: {fileID: 1167689735}
+--- !u!114 &1167689735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167689730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250314fc11558449caa7a0253d934d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBunnyNumber: 10
+  maxBearNumber: 8
+  maxElepNumber: 3
 --- !u!1 &1190473765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1262,10 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 1774876870}
+    - target: {fileID: 5459220, guid: 5a8db46995a124d3e908c5bd0fae88b5, type: 2}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a8db46995a124d3e908c5bd0fae88b5, type: 2}
   m_IsPrefabParent: 0
