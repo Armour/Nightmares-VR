@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 
 public class EnemyHealth : MonoBehaviour {
 
@@ -7,11 +8,13 @@ public class EnemyHealth : MonoBehaviour {
     public float sinkSpeed = 2.5f;
     public int scoreValue = 10;
     public AudioClip deathClip;
+	public EnemyManager manager;
+	public EnemyCounter counter;
 
     Animator anim;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
-    CapsuleCollider capsuleCollider;
+	CapsuleCollider capsuleCollider;
     bool isDead;
     bool isSinking;
 
@@ -20,8 +23,9 @@ public class EnemyHealth : MonoBehaviour {
         enemyAudio = GetComponent<AudioSource>();
         hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
-
-        currentHealth = startingHealth;
+		counter = GameObject.Find("EnemyManager").GetComponent<EnemyCounter>();
+        
+		currentHealth = startingHealth;
     }
 
     void Update() {
@@ -53,6 +57,17 @@ public class EnemyHealth : MonoBehaviour {
 
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
+
+		Debug.Log(gameObject.tag);
+		if (gameObject.tag == "ZomBunny") {
+			counter.decreaseBunny();
+		}
+		if (gameObject.tag == "ZomBear") {
+			counter.decreaseBear();
+		}
+		if (gameObject.tag == "Hellephant") {
+			counter.decreaseElep();
+		}
     }
 
     public void StartSinking() {

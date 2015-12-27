@@ -4,12 +4,15 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 	public float movementSpeed = 6.0f;
-	public float mouseSensitivity = 10.0f;
+	public float mouseLeftrightSensitivity = 10.0f;
+	public float mouseUpdownSensitivity = 6.0f;
+	public float updownRange = 45.0f;
 
 	Vector3 movement;
 	Animator anim;
 	Rigidbody playerRigidbody;
-	 
+	float verticalRotation = 0.0f;
+
 	void Awake() {
 		anim = GetComponent<Animator>();
 		playerRigidbody = GetComponent<Rigidbody>();
@@ -30,8 +33,9 @@ public class PlayerMovement : MonoBehaviour {
 		float verticalMove = Input.GetAxisRaw("Vertical");
 		Move(horizontalMove, verticalMove);
 
-		float rotLeftRight = Input.GetAxis("Mouse X") * mouseSensitivity;
-		Turning(rotLeftRight);
+		float rotLeftRight = Input.GetAxis("Mouse X") * mouseLeftrightSensitivity;
+		float rotUpDown= Input.GetAxis("Mouse Y") * mouseUpdownSensitivity;
+		Turning(rotLeftRight, rotUpDown);
 
 		Animating(horizontalMove, verticalMove);
 	} 
@@ -43,8 +47,11 @@ public class PlayerMovement : MonoBehaviour {
 		playerRigidbody.MovePosition(transform.position + movement);
 	}
 
-	void Turning(float r) {
-		transform.Rotate(0, r, 0);
+	void Turning(float rl, float ud) {
+		transform.Rotate(0, rl, 0);
+		verticalRotation += -ud;
+		verticalRotation = Mathf.Clamp(verticalRotation, -updownRange, updownRange);
+		Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 	}
 
 	void Animating(float h, float v) {
