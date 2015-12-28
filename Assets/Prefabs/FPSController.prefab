@@ -530,11 +530,11 @@ MonoBehaviour:
   m_StickToGroundForce: 10
   m_GravityMultiplier: 3
   m_MouseLook:
-    XSensitivity: 4
+    XSensitivity: 3
     YSensitivity: 2.5
     clampVerticalRotation: 1
-    MinimumX: -80
-    MaximumX: 80
+    MinimumX: -60
+    MaximumX: 60
     smooth: 0
     smoothTime: 5
     lockCursor: 1
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_JumpBob:
     BobDuration: 0.2
     BobAmount: 0.1
-  m_StepInterval: 2.5
+  m_StepInterval: 3
   m_FootstepSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
