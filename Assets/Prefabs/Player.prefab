@@ -82,8 +82,8 @@ GameObject:
   - 4: {fileID: 406514}
   - 95: {fileID: 9548936}
   - 54: {fileID: 5459220}
-  - 82: {fileID: 8296278}
   - 136: {fileID: 13678274}
+  - 82: {fileID: 8296278}
   - 114: {fileID: 11434550}
   - 114: {fileID: 11473528}
   m_Layer: 0
@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &172888
 GameObject:
   m_ObjectHideFlags: 1
@@ -416,7 +416,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
