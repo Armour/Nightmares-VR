@@ -27,10 +27,10 @@ GameObject:
   - 4: {fileID: 492980}
   - 95: {fileID: 9593848}
   - 54: {fileID: 5463490}
-  - 82: {fileID: 8296902}
-  - 195: {fileID: 19596942}
-  - 135: {fileID: 13598538}
   - 136: {fileID: 13611432}
+  - 135: {fileID: 13598538}
+  - 195: {fileID: 19596942}
+  - 82: {fileID: 8296902}
   - 114: {fileID: 11492370}
   - 114: {fileID: 11470714}
   - 114: {fileID: 11474866}
@@ -167,7 +167,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!82 &8296902
 AudioSource:
@@ -3531,6 +3531,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Hellephant
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

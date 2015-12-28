@@ -2,29 +2,31 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerHealth : MonoBehaviour {
 
     public int startingHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
-    public Image damageImage;
-    public AudioClip deathClip;
+	public Image damageImage;
+	public AudioClip deathClip;
+	public AudioClip hurtClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
     Animator anim;
-    AudioSource playerAudio;
-    PlayerMovement playerMovement;
-    PlayerShooting playerShooting;
+	PlayerShooting playerShooting;
+	AudioSource playerAudio;
+	FirstPersonController fps;
     bool isDead;
     bool damaged;
 
     void Awake() {
         anim = GetComponent<Animator>();
-        playerAudio = GetComponent<AudioSource>();
-        playerMovement = GetComponent<PlayerMovement>();
+		playerAudio = GetComponent<AudioSource>();
         playerShooting = GetComponentInChildren<PlayerShooting>();
+		fps = GetComponent<FirstPersonController>();
         currentHealth = startingHealth;
     }
 
@@ -42,6 +44,7 @@ public class PlayerHealth : MonoBehaviour {
         currentHealth -= amount;
         healthSlider.value = currentHealth;
 
+		playerAudio.clip = hurtClip;
         playerAudio.Play();
 
         if(currentHealth <= 0 && !isDead) {
@@ -59,7 +62,7 @@ public class PlayerHealth : MonoBehaviour {
         playerAudio.clip = deathClip;
         playerAudio.Play();
 
-        playerMovement.enabled = false;
+		fps.enabled = false;
         playerShooting.enabled = false;
 	}
 

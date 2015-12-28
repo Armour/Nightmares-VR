@@ -83,8 +83,8 @@ GameObject:
   - 95: {fileID: 9551538}
   - 143: {fileID: 14392274}
   - 54: {fileID: 5435934}
-  - 114: {fileID: 11432628}
   - 82: {fileID: 8225714}
+  - 114: {fileID: 11432628}
   - 114: {fileID: 11431510}
   m_Layer: 0
   m_Name: FPSController
@@ -143,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.07, y: 0.143, z: -0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424282}
@@ -269,7 +269,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!81 &8151540
 AudioListener:
@@ -508,6 +508,7 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
+  hurtClip: {fileID: 8300000, guid: 9922a12f34d0a084aab32de985459723, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.234}
 --- !u!114 &11432628
@@ -529,8 +530,8 @@ MonoBehaviour:
   m_StickToGroundForce: 10
   m_GravityMultiplier: 3
   m_MouseLook:
-    XSensitivity: 2
-    YSensitivity: 2
+    XSensitivity: 4
+    YSensitivity: 2.5
     clampVerticalRotation: 1
     MinimumX: -80
     MaximumX: 80
@@ -599,7 +600,7 @@ MonoBehaviour:
   m_JumpBob:
     BobDuration: 0.2
     BobAmount: 0.1
-  m_StepInterval: 5
+  m_StepInterval: 2.5
   m_FootstepSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
@@ -2314,7 +2315,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178544}

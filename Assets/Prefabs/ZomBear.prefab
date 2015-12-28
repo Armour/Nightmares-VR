@@ -13,10 +13,10 @@ GameObject:
   - 136: {fileID: 13600000}
   - 135: {fileID: 13500000}
   - 195: {fileID: 19500000}
-  - 114: {fileID: 11400004}
-  - 114: {fileID: 11400002}
-  - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 9
   m_Name: ZomBear
   m_TagString: ZomBear
@@ -167,7 +167,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!82 &8200000
 AudioSource:
@@ -221,7 +221,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -243,7 +243,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -3519,6 +3519,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: ZomBear
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
