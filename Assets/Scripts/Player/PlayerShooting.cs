@@ -30,7 +30,7 @@ public class PlayerShooting : MonoBehaviour {
     void Update() {
         timer += Time.deltaTime;
 
-		bool shooting = CrossPlatformInputManager.GetButton("Fire1");
+		bool shooting = Cardboard.SDK.Triggered;
 
 		if (shooting && timer >= timeBetweenBullets && Time.timeScale != 0) {
             Shoot();
