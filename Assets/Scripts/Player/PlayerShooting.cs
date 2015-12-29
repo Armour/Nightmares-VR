@@ -5,7 +5,8 @@ public class PlayerShooting : MonoBehaviour {
 
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
-    public float range = 100.0f;
+	public float range = 100.0f;
+	public float innerRange = 2.0f;
 
     float timer;
     Ray shootRay;
@@ -64,7 +65,7 @@ public class PlayerShooting : MonoBehaviour {
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
 
-        if(Physics.Raycast(shootRay, out shootHit, range, shootableMask)) {
+        if (Physics.Raycast(shootRay, out shootHit, range, shootableMask)) {
             EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
             if (enemyHealth != null) {
                 enemyHealth.TakeDamage(damagePerShot, shootHit.point);
@@ -73,5 +74,13 @@ public class PlayerShooting : MonoBehaviour {
         } else {
             gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
         }
+
+		shootRay.direction = -transform.forward;
+		if (Physics.Raycast(shootRay, out shootHit, innerRange, shootableMask)) {
+			EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+			if (enemyHealth != null) {
+				enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+			}
+		}
     }
 }
