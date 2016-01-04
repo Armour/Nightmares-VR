@@ -32,8 +32,9 @@ public class PlayerShooting : MonoBehaviour {
         timer += Time.deltaTime;
 
 		bool shooting = Cardboard.SDK.Triggered;
+		bool shooting2 = Input.GetButton("Fire1");
 
-		if (shooting && timer >= timeBetweenBullets && Time.timeScale != 0) {
+		if ((shooting || shooting2) && timer >= timeBetweenBullets && Time.timeScale != 0) {
             Shoot();
 		}
 
@@ -55,15 +56,13 @@ public class PlayerShooting : MonoBehaviour {
         gunAudio.Play();
 
         gunLight.enabled = true;
-
         gunParticles.Stop();
         gunParticles.Play();
 
         gunLine.enabled = true;
         gunLine.SetPosition(0, transform.position);
 
-        shootRay.origin = transform.position;
-        shootRay.direction = transform.forward;
+		shootRay = Camera.main.ScreenPointToRay(new Vector3((Screen.width * 0.5f), (Screen.height * 0.5f), 0f));
 
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask)) {
             EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();

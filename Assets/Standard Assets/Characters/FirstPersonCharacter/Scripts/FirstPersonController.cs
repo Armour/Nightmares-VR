@@ -28,6 +28,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
+		public Transform headTransform;
+
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
@@ -67,7 +69,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                m_Jump = Input.GetButtonDown("Jump");
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -206,8 +208,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void GetInput(out float speed)
         {
             // Read input
-            float horizontal = CrossPlatformInputManager.GetAxisRaw("Horizontal");
-            float vertical = CrossPlatformInputManager.GetAxisRaw("Vertical");
+			float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
 
             bool waswalking = m_IsWalking;
 
@@ -219,6 +221,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
             m_Input = new Vector2(horizontal, vertical);
+			Debug.Log(headTransform.rotation.y);
+			m_Input = Quaternion.Euler(0, 0, 360f - headTransform.eulerAngles.y) * m_Input;
 
 			// animate
 			bool walking = horizontal >= 0.1f || vertical >= 0.1f;

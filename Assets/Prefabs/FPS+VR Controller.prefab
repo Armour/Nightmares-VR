@@ -75,6 +75,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22416784}
   - 114: {fileID: 11432780}
+  - 114: {fileID: 11442114}
   m_Layer: 5
   m_Name: HealthSlider
   m_TagString: Untagged
@@ -1347,12 +1348,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
-  currentHealth: 100
+  startingHealth: 300
+  currentHealth: 300
   healthSlider: {fileID: 11432780}
   damageImage: {fileID: 11415692}
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   hurtClip: {fileID: 8300000, guid: 9922a12f34d0a084aab32de985459723, type: 3}
+  winClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.234}
 --- !u!114 &11424952
@@ -1370,7 +1372,7 @@ MonoBehaviour:
   distortionCorrection: 2
   enableAlignmentMarker: 1
   enableSettingsButton: 1
-  backButtonMode: 1
+  backButtonMode: 0
   tapIsTrigger: 1
   neckModelScale: 1
   autoDriftCorrection: 1
@@ -1464,9 +1466,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 300
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 300
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1487,6 +1489,18 @@ MonoBehaviour:
   toggleCullingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &11442114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece3cbfdc0fe04e39b510ced9fe21236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 11422518}
 --- !u!114 &11449406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1710,6 +1724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11422518}
+  winScore: 300
 --- !u!114 &11475370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1722,7 +1737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerShot: 20
-  timeBetweenBullets: 0.15
+  timeBetweenBullets: 0.2
   range: 100
   innerRange: 0.6
 --- !u!114 &11483034
@@ -1862,6 +1877,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  headTransform: {fileID: 410210}
 --- !u!120 &12020556
 LineRenderer:
   m_ObjectHideFlags: 1

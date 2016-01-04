@@ -6,12 +6,13 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public int startingHealth = 100;
+    public int startingHealth = 300;
     public int currentHealth;
     public Slider healthSlider;
 	public Image damageImage;
 	public AudioClip deathClip;
 	public AudioClip hurtClip;
+	public AudioClip winClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
@@ -64,6 +65,22 @@ public class PlayerHealth : MonoBehaviour {
 
 		fps.enabled = false;
         playerShooting.enabled = false;
+	}
+
+	public void Win() {
+		if (!isDead) {
+			isDead = true;
+
+			playerShooting.DisableEffects();
+
+			anim.SetTrigger("Die");
+
+			playerAudio.clip = winClip;
+			playerAudio.Play();
+
+			fps.enabled = false;
+			playerShooting.enabled = false;
+		}
 	}
 
 	public void RestartLevel() {

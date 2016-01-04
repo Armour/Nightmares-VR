@@ -19,6 +19,7 @@ public class GameOverManager : MonoBehaviour {
 			gameoverText.text = "You Lose !";
             anim.SetTrigger("GameOver");
 		} else if (ScoreManager.score >= 300f) {
+			playerHealth.Win();
 			gameoverText.text = "You Win !";
 			anim.SetTrigger("GameOver");
 		}
