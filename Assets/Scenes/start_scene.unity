@@ -500,9 +500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250314fc11558449caa7a0253d934d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBunnyNumber: 10
-  maxBearNumber: 8
-  maxElepNumber: 3
+  maxBunnyNumber: 5
+  maxBearNumber: 3
+  maxElepNumber: 2
   bunnyNumber: 0
   bearNumber: 0
   elepNumber: 0
