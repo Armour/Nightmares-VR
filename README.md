@@ -1,2 +1,2 @@
-# Sleep-Shooter
-A survival shooter game based on C# in Unity 3D, I also want to integrate VR (with Google Cardboard) into this game :D
+# Nightmares-VR
+A survival shooter game in C# based on Unity 3D, I also integrated VR into this game :D (now it works well with Google Cardboard and some other VR headsets)
